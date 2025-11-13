@@ -60,7 +60,13 @@ import Experience from '../components/Experience.astro';
             </div>
         </div>
 
-        <audio id="bgMusic" loop preload="none"></audio>
+        <audio id="bgMusic" loop preload="auto"></audio>
+
+        <!-- Music Control Button -->
+        <button id="musicToggle" class="music-toggle" aria-label="Musik abspielen">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Musik starten</span>
+        </button>
 
         <section class="content-section fade-in delay-3" id="experiences">
             <div class="section-header">
@@ -446,6 +452,61 @@ import Experience from '../components/Experience.astro';
         }
     }
 
+    /* Music Toggle Button */
+    .music-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        color: white;
+        border: none;
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 8px 30px rgba(255, 8, 68, 0.4);
+        transition: all 0.3s ease;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .music-toggle:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 40px rgba(0, 100, 255, 0.6);
+    }
+
+    .music-toggle.playing {
+        animation: none;
+        background: linear-gradient(135deg, #00ff88 0%, #0064ff 100%);
+    }
+
+    .music-toggle.playing .music-icon {
+        animation: spin 2s linear infinite;
+    }
+
+    .music-icon {
+        font-size: 1.5rem;
+        display: inline-block;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 8px 30px rgba(255, 8, 68, 0.4);
+        }
+        50% {
+            box-shadow: 0 8px 40px rgba(255, 8, 68, 0.8);
+        }
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
     /* Responsive design */
     @media (max-width: 768px) {
         .nav-toggle {
@@ -508,24 +569,85 @@ import Experience from '../components/Experience.astro';
         .hero-section {
             padding: 2rem 0;
         }
+
+        .music-toggle {
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.85rem 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .music-icon {
+            font-size: 1.3rem;
+        }
+
+        .music-text {
+            display: none;
+        }
     }
 </style>
 
 <script>
     const audio = document.getElementById('bgMusic') as HTMLAudioElement;
+    const musicToggle = document.getElementById('musicToggle') as HTMLButtonElement;
+    const musicText = musicToggle?.querySelector('.music-text');
+    let isPlaying = false;
 
-    async function tryAutoplay() {
-        try {
-            await audio.play();
-        } catch (error) {
-            console.log('Autoplay wurde blockiert.');
-        }
-    }
-
+    // Audio-Element konfigurieren
     audio.src = 'https://stream.bigtimefm.de/stream.mp3';
     audio.volume = 0.1;
 
-    tryAutoplay();
+    // Musik Toggle Funktion
+    async function toggleMusic() {
+        try {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                musicToggle?.classList.remove('playing');
+                if (musicText) musicText.textContent = 'Musik starten';
+            } else {
+                await audio.play();
+                isPlaying = true;
+                musicToggle?.classList.add('playing');
+                if (musicText) musicText.textContent = 'Musik läuft';
+            }
+        } catch (error) {
+            console.error('Audio-Fehler:', error);
+        }
+    }
+
+    // Button Click Event
+    musicToggle?.addEventListener('click', toggleMusic);
+
+    // Automatischer Neustart bei Fehlern
+    audio.addEventListener('error', (e) => {
+        console.error('Stream-Fehler:', e);
+        setTimeout(() => {
+            if (isPlaying) {
+                audio.load();
+                audio.play().catch(() => console.log('Neustart fehlgeschlagen'));
+            }
+        }, 2000);
+    });
+
+    // Automatisch fortsetzen, wenn pausiert (außer manuell pausiert)
+    audio.addEventListener('pause', () => {
+        if (isPlaying && !audio.ended) {
+            setTimeout(() => {
+                audio.play().catch(() => {
+                    isPlaying = false;
+                    musicToggle?.classList.remove('playing');
+                });
+            }, 100);
+        }
+    });
+
+    // Bei Tab-Wechsel fortsetzen
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && isPlaying) {
+            audio.play().catch(() => console.log('Fortsetzung fehlgeschlagen'));
+        }
+    });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
