@@ -1,0 +1,184 @@
+---
+interface Props {
+    title: string,
+    href?: string,
+    desc: string,
+    gradient_start: string,
+    gradient_end: string,
+    icon?: string
+}
+
+const { href, title, desc, gradient_start, gradient_end, icon }: Props = Astro.props;
+const isDisabled = !href;
+---
+
+<div class="project" style={`--gradient-start: ${gradient_start}; --gradient-end: ${gradient_end};`}>
+    {icon && (
+            <div class="project-icon">
+                <img src={icon} alt={`${title} icon`} />
+            </div>
+    )}
+    <div class="project-title">{title}</div>
+    <div class="project-desc">{desc}</div>
+    {isDisabled ? (
+            <div class="project-link disabled">
+                View Project
+                <span class="tooltip">Link not available</span>
+            </div>
+    ) : (
+            <a class="project-link" href={href} target="_blank" rel="noopener noreferrer">
+                View Project
+            </a>
+    )}
+</div>
+
+<style>
+    .project {
+        padding: 20px;
+        border-radius: 10px;
+        margin: 15px;
+        color: white;
+        text-align: center;
+        width: 700px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(var(--gradient-start), var(--gradient-end));
+        overflow: hidden;
+        position: relative;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
+    }
+
+    .project::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.5s ease-in-out;
+        opacity: 1;
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+    .project:hover::before {
+        opacity: 0;
+    }
+
+    .project > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .project-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .project-icon img {
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .project:hover .project-icon img {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .project-desc {
+        flex-grow: 1;
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .project-link {
+        text-decoration: none;
+        background-color: white;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+        transform: scale(1.05);
+    }
+
+    .project-link.disabled {
+        background-color: grey;
+        cursor: not-allowed;
+        position: relative;
+    }
+
+    .project-link:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .tooltip {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-50%, -10px);
+        background-color: rgba(51, 51, 51, 0.8);
+        color: #fff;
+        text-align: center;
+        padding: 8px 12px;
+        border-radius: 15px;
+        white-space: nowrap;
+        z-index: 1;
+        transition: opacity 0.3s, transform 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-size: 14px;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, 10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    @keyframes brightness {
+        100% {
+            opacity: 1;
+            filter: brightness(1);
+        }
+    }
+
+    @keyframes backgroundBrightness  {
+        100% {
+            background: linear-gradient(
+                    rgba(255, 255, 255, 0.205),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            linear-gradient(var(--gradient-start), var(--gradient-end));
+        }
+    }
+</style>
