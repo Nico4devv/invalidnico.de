@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Social from '../components/Social.astro';
 import Project from '../components/Project.astro';
 import Experience from '../components/Experience.astro';
+import UpdateModal from '../components/UpdateModal.astro';
 ---
 
 <Layout title="Whats up">
@@ -36,10 +37,13 @@ import Experience from '../components/Experience.astro';
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://github.com/invalidnico" target="_blank" class="nav-link nav-link-special">
+                    <a href="https://github.com/Nico4devv" target="_blank" class="nav-link nav-link-special">
                         <span class="nav-icon">⭐</span>
                         GitHub
                     </a>
+                </li>
+                <li class="nav-item">
+                    <UpdateModal />
                 </li>
             </ul>
         </div>
@@ -54,7 +58,7 @@ import Experience from '../components/Experience.astro';
                 </div>
 
                 <ul class="social-list fade-in delay-2">
-                    <Social title="GitHub" href='https://github.com/invalidnico' icon='https://cdn.simpleicons.org/github/white' color="#24292e"/>
+                    <Social title="GitHub" href='https://github.com/Nico4devv' icon='https://cdn.simpleicons.org/github/white' color="#24292e"/>
                     <Social title="Discord" href='https://discord.com/users/1078242409495932969' icon='https://cdn.simpleicons.org/discord/white' color="#5865F2"/>
                 </ul>
             </div>
@@ -554,7 +558,7 @@ import Experience from '../components/Experience.astro';
         }
 
         .experience-group {
-            grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmin(75px, 1fr));
             gap: 1.5rem;
         }
 

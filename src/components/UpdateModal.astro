@@ -1,0 +1,399 @@
+---
+// components/UpdateModal.astro
+const updates = [
+    {
+        version: 'v1.0',
+        type: 'Neu',
+        title: 'Portfolio Redesign',
+        description: 'Komplettes Redesign mit modernen Animationen und verbesserter Performance',
+        date: '13. 11 2025',
+        icon: '🎨',
+        color: '#8b5cf6'
+    }
+];
+---
+
+
+<button id="updateButton" class="update-button" aria-label="Updates anzeigen">
+    <span class="update-icon">🔔</span>
+    <span class="update-badge">1</span>
+</button>
+
+<!-- Modal -->
+<div id="updateModal" class="modal-backdrop">
+    <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header">
+            <h2>Update Verlauf</h2>
+            <button id="closeModal" class="close-button" aria-label="Schließen">
+                <span class="close-icon">✕</span>
+            </button>
+        </div>
+
+        <!-- Updates List -->
+        <div class="updates-list">
+            {updates.map((update) => (
+                    <div class="update-card">
+                        <!-- Version Header -->
+                        <div class="update-header">
+                            <div
+                                    class="update-icon-box"
+                                    style={`background-color: ${update.color}20;`}
+                            >
+                                <span style={`font-size: 1.25rem;`}>{update.icon}</span>
+                            </div>
+                            <div class="update-meta">
+                                <div class="update-version-row">
+                                    <span class="update-version">{update.version}</span>
+                                    <span
+                                            class="update-type"
+                                            style={`background-color: ${update.color}20; color: ${update.color};`}
+                                    >
+                                    {update.type}
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="update-content">
+                            <h3 class="update-title">{update.title}</h3>
+                            <p class="update-description">{update.description}</p>
+                            <p class="update-date">{update.date}</p>
+                        </div>
+                    </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+    .update-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .update-button:hover {
+        background: rgba(255, 8, 68, 0.1);
+        border-color: rgba(255, 8, 68, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .update-icon {
+        font-size: 1.5rem;
+        filter: drop-shadow(0 0 8px rgba(255, 8, 68, 0.5));
+    }
+
+    .update-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: linear-gradient(135deg, #ff0844 0%, #ff4444 100%);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(255, 8, 68, 0.5);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 2px 10px rgba(255, 8, 68, 0.5);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(255, 8, 68, 0.8);
+        }
+    }
+
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        align-items: flex-start;
+        justify-content: flex-end; /* vorher: center */
+        padding-top: 5rem;
+        padding: 5rem 1rem 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .modal-content {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        max-height: 85vh;
+        background: linear-gradient(180deg, rgba(15, 10, 30, 0.98) 0%, rgba(10, 10, 25, 0.98) 100%);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 8, 68, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        animation: slideUp 0.3s ease;
+        margin-right: 0; /* stellt sicher, dass es ganz rechts sitzt */
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-header h2 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: white;
+        margin: 0;
+        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .close-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .close-button:hover {
+        background: rgba(255, 8, 68, 0.2);
+        border-color: rgba(255, 8, 68, 0.4);
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    .close-icon {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+
+    .updates-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .updates-list::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .updates-list::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+
+    .updates-list::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff0844, #0064ff);
+        border-radius: 10px;
+    }
+
+    .update-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+    }
+
+    .update-card:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 8, 68, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .update-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .update-icon-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .update-meta {
+        flex: 1;
+    }
+
+    .update-version-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .update-version {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    .update-type {
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+    }
+
+    .update-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .update-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+    }
+
+    .update-description {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .update-date {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 0;
+        padding-top: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+        .modal-backdrop {
+            /* Auf Mobile evtl. wieder zentrieren falls gewünscht:
+               justify-content: center; */
+        }
+
+        .modal-content {
+            max-height: 90vh;
+        }
+
+        .modal-header {
+            padding: 1.25rem;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .update-card {
+            padding: 1rem;
+        }
+
+        .update-icon-box {
+            width: 38px;
+            height: 38px;
+        }
+
+        .update-version {
+            font-size: 1rem;
+        }
+
+        .update-title {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+<script>
+    const updateButton = document.getElementById('updateButton');
+    const updateModal = document.getElementById('updateModal');
+    const closeModal = document.getElementById('closeModal');
+    const updateBadge = document.querySelector('.update-badge');
+
+    // Modal öffnen
+    updateButton?.addEventListener('click', () => {
+        updateModal?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Badge entfernen wenn geöffnet
+        if (updateBadge) {
+            updateBadge.style.display = 'none';
+        }
+    });
+
+    // Modal schließen
+    closeModal?.addEventListener('click', () => {
+        updateModal?.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Modal schließen beim Klick auf Backdrop
+    updateModal?.addEventListener('click', (e) => {
+        if (e.target === updateModal) {
+            updateModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // ESC Taste zum Schließen
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && updateModal?.classList.contains('active')) {
+            updateModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script>
