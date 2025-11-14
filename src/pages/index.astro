@@ -4,6 +4,7 @@ import Social from '../components/Social.astro';
 import Project from '../components/Project.astro';
 import Experience from '../components/Experience.astro';
 import UpdateModal from '../components/UpdateModal.astro';
+import Brightness from '../components/brightness.astro';
 ---
 
 <Layout title="Whats up">
@@ -45,6 +46,9 @@ import UpdateModal from '../components/UpdateModal.astro';
                 <li class="nav-item">
                     <UpdateModal />
                 </li>
+                <li class="nav-item">
+                    <Brightness />
+                </li>
             </ul>
         </div>
     </nav>
@@ -52,6 +56,11 @@ import UpdateModal from '../components/UpdateModal.astro';
     <main id="home">
         <div class="hero-section">
             <div class="hero-content">
+                <div class="profile-image-container">
+                    <div class="profile-image-wrapper">
+                        <img src="/avatar.gif" alt="ThisIsNoah" class="profile-image" />
+                    </div>
+                </div>
                 <h1 class="fade-in">Hallo, ich bin <span class="text-gradient">Nico</span>.</h1>
                 <div class="center fade-in delay-1">
                     <p class="subtitle">Ich bin ein <strong>Backend-Entwickler & Frontend-Entwickler</strong> und <strong>Feuerwehrmann</strong></p>
@@ -315,11 +324,68 @@ import UpdateModal from '../components/UpdateModal.astro';
         width: 100%;
         padding: 3rem 0;
         position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200%;
+        height: 200%;
+        background:
+                linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: gridMove 20s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes gridMove {
+        0% {
+            transform: translate(-50%, -50%) perspective(500px) rotateX(60deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) perspective(500px) rotateX(60deg) translateY(-50px);
+        }
     }
 
     .hero-content {
         position: relative;
         z-index: 1;
+    }
+
+    .profile-image-container {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .profile-image-wrapper {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        padding: 4px;
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        animation: rotate 8s linear infinite;
+        box-shadow: 0 0 40px rgba(168, 85, 247, 0.6), 0 0 80px rgba(34, 197, 94, 0.4);
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(10, 10, 30, 0.9);
     }
 
     h1 {
@@ -572,6 +638,11 @@ import UpdateModal from '../components/UpdateModal.astro';
 
         .hero-section {
             padding: 2rem 0;
+        }
+
+        .profile-image-container {
+            width: 140px;
+            height: 140px;
         }
 
         .music-toggle {
