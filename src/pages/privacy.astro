@@ -1,0 +1,196 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<Layout title="Datenschutzerklärung">
+
+    <Navbar />
+
+    <main class="page-wrapper fade-in">
+        <h1 class="title">Datenschutzerklärung</h1>
+
+        <!-- 1 -->
+        <section class="card">
+            <h2 class="subtitle">1. Allgemeines</h2>
+            <p class="text-muted">
+                Der Schutz deiner personenbezogenen Daten ist mir wichtig.
+                Ich verarbeite deine Daten ausschließlich nach deutschem Recht:
+                der Datenschutz-Grundverordnung (DSGVO), dem Bundesdatenschutzgesetz (BDSG)
+                sowie den einschlägigen telemedienrechtlichen Vorschriften des TMG.
+            </p>
+        </section>
+
+        <!-- 2 -->
+        <section class="card">
+            <h2 class="subtitle">2. Verantwortlicher</h2>
+            <p class="text-muted">
+                Verantwortlich für die Datenverarbeitung auf dieser Website ist die im Impressum
+                genannte Person.
+            </p>
+        </section>
+
+        <!-- 3 -->
+        <section class="card">
+            <h2 class="subtitle">3. Verarbeitung personenbezogener Daten</h2>
+
+            <h3 class="section-title">Kontaktaufnahme</h3>
+            <p class="text-muted">
+                Wenn du mich kontaktierst, werden die von dir übermittelten Angaben
+                (Name, E-Mail-Adresse, Nachricht) gemäß Art. 6 Abs. 1 lit. b DSGVO
+                zur Bearbeitung deiner Anfrage verarbeitet.
+            </p>
+
+        </section>
+
+        <!-- 4 -->
+        <section class="card">
+            <h2 class="subtitle">4. Deine Rechte</h2>
+
+            <p class="text-muted">
+                Du hast nach der DSGVO folgende Rechte:
+            </p>
+
+            <ul class="text-muted list">
+                <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                <li>Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+            </ul>
+
+            <p class="text-muted">
+                Hierzu kannst du dich jederzeit über die im Impressum angegebenen Kontaktdaten an mich wenden.
+            </p>
+        </section>
+
+        <!-- 5 -->
+        <section class="card">
+            <h2 class="subtitle">5. Google Fonts</h2>
+
+            <p class="text-muted">
+                Diese Website verwendet Google Fonts zur einheitlichen Darstellung von Schriftarten.
+                Beim Aufruf der Seite wird eine Verbindung zu Servern von Google hergestellt.
+            </p>
+
+            <p class="text-muted">
+                Weitere Informationen:<br>
+                <a class="link" href="https://developers.google.com/fonts/faq" target="_blank">
+                    https://developers.google.com/fonts/faq
+                </a><br><br>
+
+                Datenschutzerklärung von Google:<br>
+                <a class="link" href="https://policies.google.com/privacy" target="_blank">
+                    https://policies.google.com/privacy
+                </a>
+            </p>
+
+            <p class="text-muted">Stand: 2025</p>
+        </section>
+
+    </main>
+</Layout>
+
+<style>
+    .page-wrapper {
+        margin: auto;
+        padding: 8rem 1rem 4rem;
+        max-width: 880px;
+        color: white;
+        line-height: 1.75;
+    }
+
+    .title {
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+        font-weight: 800;
+        margin-bottom: 3rem;
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 50%, #10b981 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+        100% { text-shadow: 0 0 25px rgba(34, 197, 94, 0.5); }
+    }
+
+    .card {
+        background: rgba(168, 85, 247, 0.08);
+        padding: 2.5rem;
+        border-radius: 1.2rem;
+        margin-bottom: 2.5rem;
+        border: 1.5px solid rgba(168, 85, 247, 0.2);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 10px 40px rgba(168, 85, 247, 0.15),
+        inset 0 0 15px rgba(34, 197, 94, 0.05);
+        transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 50px rgba(168, 85, 247, 0.25),
+        inset 0 0 25px rgba(34, 197, 94, 0.08);
+        border-color: rgba(34, 197, 94, 0.3);
+    }
+
+    .subtitle {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        background: linear-gradient(135deg, #a855f7, #22c55e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 0.7rem;
+        position: relative;
+        color: #22c55e;
+    }
+
+    .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 45px;
+        height: 3px;
+        background: linear-gradient(135deg, #a855f7, #22c55e);
+        border-radius: 2px;
+    }
+
+    .text-muted {
+        color: rgba(255,255,255,0.78);
+    }
+
+    .link {
+        color: #22c55e;
+        text-decoration: underline;
+        transition: color .2s ease;
+    }
+
+    .link:hover {
+        color: #a855f7;
+    }
+
+    .list {
+        list-style: disc;
+        margin-left: 1rem;
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fade .7s ease forwards;
+    }
+
+    @keyframes fade {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

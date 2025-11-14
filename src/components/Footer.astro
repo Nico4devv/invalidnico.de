@@ -3,9 +3,15 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="footer-container">
-      <p>© {currentYear} — Made with 🤍 by invalidnico</p>
-  </div>
+    <div class="footer-container">
+        <p>© {currentYear} — Made with 🤍 by invalidnico</p>
+
+        <div class="legal-links">
+            <a href="/imprint">Impressum</a>
+            <span>|</span>
+            <a href="/privacy">Datenschutz</a>
+        </div>
+    </div>
 </footer>
 
 <style>
@@ -17,19 +23,32 @@ const currentYear = new Date().getFullYear();
         min-width: 450px;
     }
 
-    .footer-content {
+    .footer-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 0.75rem;
     }
 
-    .footer-content a {
+    .legal-links {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        opacity: 0.85;
+    }
+
+    .legal-links a {
         color: white;
         text-decoration: none;
+        transition: opacity 0.2s ease;
     }
 
-    .footer-content a:hover {
+    .legal-links a:hover {
+        opacity: 1;
         text-decoration: underline;
     }
 
+    .legal-links span {
+        opacity: 0.6;
+    }
 </style>

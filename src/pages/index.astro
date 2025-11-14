@@ -94,7 +94,8 @@ import UpdateModal from '../components/UpdateModal.astro';
                 <p class="section-subtitle">Einige der Projekte, an denen ich derzeit arbeite</p>
             </div>
             <div class="project-group">
-                <Project title="Quantum-Bot" href="https://quantum-bot.net" desc="Ein Discord-Bot, der viele Features für deinen Server bietet." gradient_start='#3200dc' gradient_end="#13151A" icon="/quantumbot.png"/>
+                <Project title="Quantum-Bot" href="https://quantum-bot.net" desc="Ein Discord-Bot, der viele Features für deinen Server bietet." gradient_start="#a855f7" gradient_end="#22c55e" icon="/quantumbot.png" />
+                <Project title="retrac" href="https://discord.gg/retrac" desc="Ein Projekt, wo du OGfn spielen kannst (Helper)" gradient_start="#a855f7" gradient_end="#22c55e" icon="/retrac.png" />
             </div>
         </section>
     </main>
@@ -111,8 +112,8 @@ import UpdateModal from '../components/UpdateModal.astro';
         backdrop-filter: blur(20px);
         z-index: 1000;
         padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 50, 100, 0.2);
-        box-shadow: 0 4px 30px rgba(0, 100, 255, 0.15);
+        border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        box-shadow: 0 4px 30px rgba(168, 85, 247, 0.15);
     }
 
     .nav-container {
@@ -139,7 +140,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     .logo-icon {
         font-size: 2rem;
         animation: float 3s ease-in-out infinite;
-        filter: drop-shadow(0 0 10px rgba(0, 100, 255, 0.5));
+        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
     }
 
     @keyframes float {
@@ -148,7 +149,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     }
 
     .nav-logo span:not(.logo-icon) {
-        background: linear-gradient(135deg, #ff0844 0%, #0064ff 50%, #ff0844 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 50%, #a855f7 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-size: 200% 200%;
@@ -157,7 +158,7 @@ import UpdateModal from '../components/UpdateModal.astro';
 
     .nav-logo:hover {
         transform: scale(1.08);
-        filter: drop-shadow(0 0 20px rgba(255, 8, 68, 0.5));
+        filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
     }
 
     .nav-toggle {
@@ -175,7 +176,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     .hamburger::after {
         width: 28px;
         height: 3px;
-        background: linear-gradient(90deg, #ff0844, #0064ff);
+        background: linear-gradient(90deg, #a855f7, #22c55e);
         border-radius: 3px;
         transition: all 0.3s ease;
     }
@@ -250,7 +251,7 @@ import UpdateModal from '../components/UpdateModal.astro';
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(255, 8, 68, 0.15) 0%, rgba(0, 100, 255, 0.15) 100%);
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
         opacity: 0;
         transition: opacity 0.3s ease;
         border-radius: 14px;
@@ -263,8 +264,8 @@ import UpdateModal from '../components/UpdateModal.astro';
     .nav-link:hover {
         color: white;
         transform: translateY(-3px);
-        border-color: rgba(255, 8, 68, 0.3);
-        box-shadow: 0 8px 25px rgba(0, 100, 255, 0.3);
+        border-color: rgba(168, 85, 247, 0.3);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
     }
 
     .nav-icon {
@@ -277,10 +278,10 @@ import UpdateModal from '../components/UpdateModal.astro';
     }
 
     .nav-link-special {
-        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
         color: white;
         border: none;
-        box-shadow: 0 4px 20px rgba(255, 8, 68, 0.4);
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
         font-weight: 700;
     }
 
@@ -289,7 +290,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     }
 
     .nav-link-special:hover {
-        box-shadow: 0 8px 30px rgba(0, 100, 255, 0.6);
+        box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
         transform: translateY(-3px) scale(1.05);
     }
 
@@ -328,7 +329,7 @@ import UpdateModal from '../components/UpdateModal.astro';
         line-height: 1.1;
         margin-bottom: 2rem;
         letter-spacing: -0.03em;
-        text-shadow: 0 0 40px rgba(255, 8, 68, 0.3);
+        text-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
     }
 
     .subtitle {
@@ -340,7 +341,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     }
 
     .subtitle strong {
-        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 700;
@@ -360,7 +361,7 @@ import UpdateModal from '../components/UpdateModal.astro';
         transform: translateX(-50%);
         width: 90%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 8, 68, 0.3), rgba(0, 100, 255, 0.3), transparent);
+        background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), rgba(34, 197, 94, 0.3), transparent);
     }
 
     .section-header {
@@ -373,11 +374,11 @@ import UpdateModal from '../components/UpdateModal.astro';
         font-weight: 800;
         line-height: 1.2;
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-shadow: 0 0 30px rgba(0, 100, 255, 0.3);
+        text-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
     }
 
     .section-subtitle {
@@ -388,7 +389,7 @@ import UpdateModal from '../components/UpdateModal.astro';
     }
 
     .text-gradient {
-        background-image: linear-gradient(135deg, #ff0844 0%, #0064ff 50%, #ff0844 100%);
+        background-image: linear-gradient(135deg, #a855f7 0%, #22c55e 50%, #a855f7 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-size: 200% 200%;
@@ -464,7 +465,7 @@ import UpdateModal from '../components/UpdateModal.astro';
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        background: linear-gradient(135deg, #ff0844 0%, #0064ff 100%);
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
         color: white;
         border: none;
         padding: 1rem 1.5rem;
@@ -473,19 +474,19 @@ import UpdateModal from '../components/UpdateModal.astro';
         font-weight: 700;
         cursor: pointer;
         z-index: 999;
-        box-shadow: 0 8px 30px rgba(255, 8, 68, 0.4);
+        box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
         transition: all 0.3s ease;
         animation: pulse 2s ease-in-out infinite;
     }
 
     .music-toggle:hover {
         transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 12px 40px rgba(0, 100, 255, 0.6);
+        box-shadow: 0 12px 40px rgba(34, 197, 94, 0.6);
     }
 
     .music-toggle.playing {
         animation: none;
-        background: linear-gradient(135deg, #00ff88 0%, #0064ff 100%);
+        background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
     }
 
     .music-toggle.playing .music-icon {
@@ -499,10 +500,10 @@ import UpdateModal from '../components/UpdateModal.astro';
 
     @keyframes pulse {
         0%, 100% {
-            box-shadow: 0 8px 30px rgba(255, 8, 68, 0.4);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
         }
         50% {
-            box-shadow: 0 8px 40px rgba(255, 8, 68, 0.8);
+            box-shadow: 0 8px 40px rgba(168, 85, 247, 0.8);
         }
     }
 
@@ -530,7 +531,7 @@ import UpdateModal from '../components/UpdateModal.astro';
             gap: 0.75rem;
             transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
-            border-left: 2px solid rgba(255, 8, 68, 0.3);
+            border-left: 2px solid rgba(168, 85, 247, 0.3);
         }
 
         .nav-menu.active {
@@ -558,7 +559,7 @@ import UpdateModal from '../components/UpdateModal.astro';
         }
 
         .experience-group {
-            grid-template-columns: repeat(auto-fit, minmin(75px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
             gap: 1.5rem;
         }
 
@@ -597,11 +598,9 @@ import UpdateModal from '../components/UpdateModal.astro';
     const musicText = musicToggle?.querySelector('.music-text');
     let isPlaying = false;
 
-    // Audio-Element konfigurieren
     audio.src = 'https://stream.bigtimefm.de/stream.mp3';
     audio.volume = 0.1;
 
-    // Musik Toggle Funktion
     async function toggleMusic() {
         try {
             if (isPlaying) {
@@ -620,10 +619,8 @@ import UpdateModal from '../components/UpdateModal.astro';
         }
     }
 
-    // Button Click Event
     musicToggle?.addEventListener('click', toggleMusic);
 
-    // Automatischer Neustart bei Fehlern
     audio.addEventListener('error', (e) => {
         console.error('Stream-Fehler:', e);
         setTimeout(() => {
@@ -634,7 +631,6 @@ import UpdateModal from '../components/UpdateModal.astro';
         }, 2000);
     });
 
-    // Automatisch fortsetzen, wenn pausiert (außer manuell pausiert)
     audio.addEventListener('pause', () => {
         if (isPlaying && !audio.ended) {
             setTimeout(() => {
@@ -646,7 +642,6 @@ import UpdateModal from '../components/UpdateModal.astro';
         }
     });
 
-    // Bei Tab-Wechsel fortsetzen
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden && isPlaying) {
             audio.play().catch(() => console.log('Fortsetzung fehlgeschlagen'));
