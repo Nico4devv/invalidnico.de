@@ -1,0 +1,678 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Kontakt - Nico">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">✨</span>
+                <span>Nico</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#experiences" class="nav-link">
+                        <span class="nav-icon">💻</span>
+                        Fähigkeiten
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#projects" class="nav-link">
+                        <span class="nav-icon">🚀</span>
+                        Projekte
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/Nico4devv" target="_blank" class="nav-link">
+                        <span class="nav-icon">⭐</span>
+                        GitHub
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link nav-link-special">
+                        <span class="nav-icon">📧</span>
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="contact-hero fade-in">
+            <h1>Kontakt <span class="text-gradient">aufnehmen</span></h1>
+            <p class="hero-subtitle">
+                Ich bin immer offen für Diskussionen über neue Projekte, kreative Ideen oder<br />
+                Möglichkeiten, mich in Ihre Vision zu integrieren.
+            </p>
+        </div>
+
+        <div class="contact-container fade-in delay-1">
+            <div class="contact-info-section">
+                <h2>Kontaktinformation</h2>
+
+                <div class="info-card">
+                    <div class="info-icon email-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <a href="mailto:littxleace@gmail.com">littxleace@gmail.com</a>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon location-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h3>Adresse</h3>
+                        <p>Güterbahnhofstraße 3, Bitterfeld</p>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3>Folge mir</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/Nico4devv" target="_blank" class="social-link" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://discord.com/users/1078242409495932969" target="_blank" class="social-link" aria-label="Discord">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/Nico4devv" target="_blank" class="social-link" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/Nico4devv" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Senden Sie mir eine Nachricht</h2>
+                <form action="https://formspree.io/f/mdkydplb" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Ihr Name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="ihre@email.com" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Betreff</label>
+                        <input type="text" id="subject" name="subject" placeholder="Betreff" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nachricht</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Ihre Nachricht" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Sende Nachricht</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" x2="11" y1="2" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Navbar - Same as index.astro */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 30, 0.85);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        box-shadow: 0 4px 30px rgba(168, 85, 247, 0.15);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+
+    .logo-icon {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(5deg); }
+    }
+
+    .nav-logo span:not(.logo-icon) {
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 50%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .nav-logo:hover {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
+    }
+
+    .nav-toggle {
+        display: none;
+        flex-direction: column;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1001;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        width: 28px;
+        height: 3px;
+        background: linear-gradient(90deg, #a855f7, #22c55e);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger {
+        position: relative;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        left: 0;
+    }
+
+    .hamburger::before { top: -9px; }
+    .hamburger::after { top: 9px; }
+
+    .nav-toggle.active .hamburger { background: transparent; }
+    .nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+    .nav-toggle.active .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+    .nav-menu {
+        display: flex;
+        gap: 0.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.85rem 1.5rem;
+        border-radius: 14px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 14px;
+    }
+
+    .nav-link:hover::before { opacity: 1; }
+
+    .nav-link:hover {
+        color: white;
+        transform: translateY(-3px);
+        border-color: rgba(168, 85, 247, 0.3);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+    }
+
+    .nav-icon {
+        font-size: 1.3rem;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover .nav-icon {
+        transform: scale(1.25) rotate(8deg);
+    }
+
+    .nav-link-special {
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+        font-weight: 700;
+    }
+
+    .nav-link-special:hover {
+        box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
+        transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Main Content */
+    main {
+        margin: auto;
+        padding: 8rem 2rem 3rem;
+        max-width: 1200px;
+        width: 100%;
+        min-height: 100vh;
+        color: white;
+    }
+
+    .contact-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.03em;
+    }
+
+    .text-gradient {
+        background-image: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.7;
+        font-weight: 400;
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .contact-info-section,
+    .contact-form-section {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(168, 85, 247, 0.2);
+        border-radius: 24px;
+        padding: 2.5rem;
+        backdrop-filter: blur(10px);
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+        font-weight: 800;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .info-card {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+        background: rgba(168, 85, 247, 0.08);
+        border-color: rgba(168, 85, 247, 0.3);
+        transform: translateX(8px);
+    }
+
+    .info-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .email-icon {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05));
+        color: #a855f7;
+    }
+
+    .phone-icon {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05));
+        color: #22c55e;
+    }
+
+    .location-icon {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+        color: #3b82f6;
+    }
+
+    .info-content h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: white;
+    }
+
+    .info-content a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 0.95rem;
+    }
+
+    .info-content a:hover {
+        color: #a855f7;
+    }
+
+    .info-content p {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .social-section {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(168, 85, 247, 0.2);
+    }
+
+    .social-section h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        border-color: transparent;
+        color: white;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+    }
+
+    /* Contact Form */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        color: white;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #a855f7;
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    .submit-btn {
+        background: linear-gradient(135deg, #a855f7 0%, #22c55e 100%);
+        color: white;
+        border: none;
+        border-radius: 14px;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
+    }
+
+    .submit-btn:active {
+        transform: translateY(-1px);
+    }
+
+    /* Animations */
+    .fade-in {
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: flex;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(15, 10, 30, 0.98) 0%, rgba(10, 10, 25, 0.98) 100%);
+            backdrop-filter: blur(25px);
+            flex-direction: column;
+            padding: 6rem 2rem 2rem;
+            gap: 0.75rem;
+            transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
+            border-left: 2px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-link {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 1.2rem 1.8rem;
+            font-size: 1.15rem;
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+        }
+
+        main {
+            padding: 6rem 1rem 2rem;
+        }
+
+        .contact-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-info-section,
+        .contact-form-section {
+            padding: 1.5rem;
+        }
+
+        .info-card {
+            padding: 1rem;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .hero-subtitle br {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle?.addEventListener('click', () => {
+        navMenu?.classList.toggle('active');
+        navToggle?.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.nav-container')) {
+            navMenu?.classList.remove('active');
+            navToggle?.classList.remove('active');
+        }
+    });
+</script>

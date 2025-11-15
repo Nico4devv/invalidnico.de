@@ -2,6 +2,15 @@
 // components/UpdateModal.astro
 const updates = [
     {
+        version: 'v1.2',
+        type: 'added',
+        title: 'contactFunktion hinzugefügt',
+        description: 'sie können mich jetzt direkt über das Portfolio kontaktieren über invalidnico.de/contact',
+        date: '15. 11 2025',
+        icon: '⚡',
+        color: '#f59e0b'
+    },
+    {
         version: 'v1.1',
         type: 'added',
         title: 'Die Privacy Policy wurde hinzugefügt',
@@ -24,7 +33,7 @@ const updates = [
 
 <button id="updateButton" class="update-button" aria-label="Updates anzeigen">
     <span class="update-icon">🔔</span>
-    <span class="update-badge">2</span>
+    <span class="update-badge">3</span>
 </button>
 
 <div id="updateModal" class="modal-backdrop">
