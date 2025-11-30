@@ -1,0 +1,210 @@
+---
+// LanguageToggle.astro
+---
+
+<div class="language-toggle">
+    <button id="langToggle" class="lang-button" aria-label="Sprache wechseln">
+        <span class="lang-icon">🌐</span>
+        <span class="lang-text">DE</span>
+    </button>
+</div>
+
+<style>
+    .language-toggle {
+        display: flex;
+        align-items: center;
+    }
+
+    .lang-button {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.85rem 1.5rem;
+        border-radius: 14px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .lang-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 14px;
+    }
+
+    .lang-button:hover::before {
+        opacity: 1;
+    }
+
+    .lang-button:hover {
+        color: white;
+        transform: translateY(-3px);
+        border-color: rgba(168, 85, 247, 0.3);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+    }
+
+    .lang-icon {
+        font-size: 1.3rem;
+        transition: transform 0.3s ease;
+    }
+
+    .lang-button:hover .lang-icon {
+        transform: scale(1.25) rotate(8deg);
+    }
+
+    .lang-text {
+        font-weight: 700;
+        min-width: 28px;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .lang-button {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 1.2rem 1.8rem;
+            font-size: 1.15rem;
+        }
+
+        .lang-icon {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    const langButton = document.getElementById('langToggle');
+    const langText = langButton?.querySelector('.lang-text');
+
+    // Load saved language or default to German
+    let currentLang = localStorage.getItem('language') || 'de';
+
+    // Translations object
+    const translations = {
+        de: {
+            home: 'Home',
+            skills: 'Fähigkeiten',
+            projects: 'Projekte',
+            github: 'GitHub',
+            greeting: 'Hallo, ich bin',
+            subtitle: 'Ich bin ein <strong>Backend-Entwickler & Frontend-Entwickler</strong> und <strong>Feuerwehrmann</strong>',
+            experiencesTitle: '💻 Erfahrungen',
+            experiencesSubtitle: 'Die Sprachen und Tools, mit denen ich bereits gearbeitet habe',
+            projectsTitle: '🚀 Projekte',
+            projectsSubtitle: 'Einige der Projekte, an denen ich derzeit arbeite',
+            musicStart: 'Musik starten',
+            musicPlaying: 'Musik läuft',
+            projectDesc: 'Ein Discord-Bot, der viele Features für deinen Server bietet.',
+            langCode: 'DE'
+        },
+        en: {
+            home: 'Home',
+            skills: 'Skills',
+            projects: 'Projects',
+            github: 'GitHub',
+            greeting: 'Hello, I\'m',
+            subtitle: 'I am a <strong>Backend Developer & Frontend Developer</strong> and <strong>Firefighter</strong>',
+            experiencesTitle: '💻 Experiences',
+            experiencesSubtitle: 'The languages and tools I have worked with',
+            projectsTitle: '🚀 Projects',
+            projectsSubtitle: 'Some of the projects I am currently working on',
+            musicStart: 'Start Music',
+            musicPlaying: 'Music Playing',
+            projectDesc: 'A Discord bot that offers many features for your server.',
+            langCode: 'EN'
+        }
+    };
+
+    function updateContent(lang: string) {
+        const t = translations[lang as keyof typeof translations];
+
+        // Update navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            if (href === '#home') link.innerHTML = `<span class="nav-icon">🏠</span>${t.home}`;
+            else if (href === '#experiences') link.innerHTML = `<span class="nav-icon">💻</span>${t.skills}`;
+            else if (href === '#projects') link.innerHTML = `<span class="nav-icon">🚀</span>${t.projects}`;
+            else if (href && href.includes('github')) link.innerHTML = `<span class="nav-icon">⭐</span>${t.github}`;
+        });
+
+        // Update hero section
+        const heroTitle = document.querySelector('h1');
+        if (heroTitle) {
+            heroTitle.innerHTML = `${t.greeting} <span class="text-gradient">Nico</span>.`;
+        }
+
+        const subtitle = document.querySelector('.subtitle');
+        if (subtitle) {
+            subtitle.innerHTML = t.subtitle;
+        }
+
+        // Update sections
+        const experiencesTitle = document.querySelector('#experiences h2');
+        if (experiencesTitle) experiencesTitle.textContent = t.experiencesTitle;
+
+        const experiencesSubtitle = document.querySelector('#experiences .section-subtitle');
+        if (experiencesSubtitle) experiencesSubtitle.textContent = t.experiencesSubtitle;
+
+        const projectsTitle = document.querySelector('#projects h2');
+        if (projectsTitle) projectsTitle.textContent = t.projectsTitle;
+
+        const projectsSubtitle = document.querySelector('#projects .section-subtitle');
+        if (projectsSubtitle) projectsSubtitle.textContent = t.projectsSubtitle;
+
+        // Update music button text
+        const musicText = document.querySelector('.music-text');
+        const musicButton = document.getElementById('musicToggle');
+        if (musicText && musicButton) {
+            const isPlaying = musicButton.classList.contains('playing');
+            musicText.textContent = isPlaying ? t.musicPlaying : t.musicStart;
+        }
+
+        // Update project description
+        const projectDesc = document.querySelector('.project-card p');
+        if (projectDesc) projectDesc.textContent = t.projectDesc;
+
+        // Update language button
+        if (langText) langText.textContent = t.langCode;
+
+        // Save to localStorage
+        localStorage.setItem('language', lang);
+    }
+
+    // Initialize with saved language
+    updateContent(currentLang);
+
+    // Toggle language on button click
+    langButton?.addEventListener('click', () => {
+        currentLang = currentLang === 'de' ? 'en' : 'de';
+        updateContent(currentLang);
+    });
+
+    // Update music button text when state changes
+    const musicButton = document.getElementById('musicToggle');
+    const observer = new MutationObserver(() => {
+        const musicText = document.querySelector('.music-text');
+        const t = translations[currentLang as keyof typeof translations];
+        if (musicText && musicButton) {
+            const isPlaying = musicButton.classList.contains('playing');
+            musicText.textContent = isPlaying ? t.musicPlaying : t.musicStart;
+        }
+    });
+
+    if (musicButton) {
+        observer.observe(musicButton, { attributes: true, attributeFilter: ['class'] });
+    }
+</script>

@@ -4,6 +4,7 @@ import Social from '../components/Social.astro';
 import Project from '../components/Project.astro';
 import Experience from '../components/Experience.astro';
 import UpdateModal from '../components/UpdateModal.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
 ---
 
 <Layout title="Whats up">
@@ -44,6 +45,9 @@ import UpdateModal from '../components/UpdateModal.astro';
                 </li>
                 <li class="nav-item">
                     <UpdateModal />
+                </li>
+                <li class="nav-item">
+                    <LanguageToggle />
                 </li>
             </ul>
         </div>
@@ -496,7 +500,6 @@ import UpdateModal from '../components/UpdateModal.astro';
         flex-wrap: wrap;
     }
 
-    /* Fade in animations */
     .fade-in {
         opacity: 0;
         animation: fadeInUp 1s ease forwards;
@@ -518,7 +521,6 @@ import UpdateModal from '../components/UpdateModal.astro';
         }
     }
 
-    /* Music Toggle Button */
     .music-toggle {
         position: fixed;
         bottom: 2rem;
